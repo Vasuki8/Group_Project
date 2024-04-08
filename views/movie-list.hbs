@@ -1,0 +1,69 @@
+<!-- movies-list.hbs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of Movies</title>
+  <link rel="stylesheet" href="/movie-list.css"> 
+</head>
+<body>
+  <h1>List of Movies</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Plot</th>
+        <th>Genres</th>
+        <th>Runtime</th>
+        <th>Cast</th>
+        <th>Number of Comments</th>
+        <th>Full Plot</th>
+        <th>Languages</th>
+        <th>Released Date</th>
+        <th>Directors</th>
+        <th>Rated</th>
+        <th>Awards</th>
+        <th>Last Updated</th>
+        <th>Year</th>
+        <th>IMDB Rating</th>
+        <th>IMDB Votes</th>
+        <th>IMDB ID</th>
+        <th>Countries</th>
+        <th>Type</th>
+        <th>Tomatoes Rating</th>
+        <th>Tomatoes Reviews</th>
+        <th>Tomatoes Meter</th>
+        <th>Tomatoes Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each movies}}
+      <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.plot}}</td>
+        <td>{{this.genres}}</td>
+        <td>{{this.runtime}}</td>
+        <td>{{this.cast}}</td>
+        <td>{{this.num_mflix_comments}}</td>
+        <td>{{this.fullplot}}</td>
+        <td>{{this.languages}}</td>
+        <td>{{this.released}}</td>
+        <td>{{this.directors}}</td>
+        <td>{{this.rated}}</td>
+        <td>{{this.awards}}</td>
+        <td>{{this.lastupdated}}</td>
+        <td>{{this.year}}</td>
+        <td>{{this.imdb.rating}}</td>
+        <td>{{this.imdb.votes}}</td>
+        <td>{{this.imdb.id}}</td>
+        <td>{{this.countries}}</td>
+        <td>{{this.type}}</td>
+        <td>{{this.tomatoes.viewer.rating}}</td>
+        <td>{{this.tomatoes.viewer.numReviews}}</td>
+        <td>{{this.tomatoes.viewer.meter}}</td>
+        <td>{{this.tomatoes.lastUpdated}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>
