@@ -7,63 +7,105 @@
 </head>
 <body>
   <h1>List of Movies</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Plot</th>
-        <th>Genres</th>
-        <th>Runtime</th>
-        <th>Cast</th>
-        <th>Number of Comments</th>
-        <th>Full Plot</th>
-        <th>Languages</th>
-        <th>Released Date</th>
-        <th>Directors</th>
-        <th>Rated</th>
-        <th>Awards</th>
-        <th>Last Updated</th>
-        <th>Year</th>
-        <th>IMDB Rating</th>
-        <th>IMDB Votes</th>
-        <th>IMDB ID</th>
-        <th>Countries</th>
-        <th>Type</th>
-        <th>Tomatoes Rating</th>
-        <th>Tomatoes Reviews</th>
-        <th>Tomatoes Meter</th>
-        <th>Tomatoes Last Updated</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each movies}}
-      <tr>
-        <td>{{this.title}}</td>
-        <td>{{this.plot}}</td>
-        <td>{{this.genres}}</td>
-        <td>{{this.runtime}}</td>
-        <td>{{this.cast}}</td>
-        <td>{{this.num_mflix_comments}}</td>
-        <td>{{this.fullplot}}</td>
-        <td>{{this.languages}}</td>
-        <td>{{this.released}}</td>
-        <td>{{this.directors}}</td>
-        <td>{{this.rated}}</td>
-        <td>{{this.awards}}</td>
-        <td>{{this.lastupdated}}</td>
-        <td>{{this.year}}</td>
-        <td>{{this.imdb.rating}}</td>
-        <td>{{this.imdb.votes}}</td>
-        <td>{{this.imdb.id}}</td>
-        <td>{{this.countries}}</td>
-        <td>{{this.type}}</td>
-        <td>{{this.tomatoes.viewer.rating}}</td>
-        <td>{{this.tomatoes.viewer.numReviews}}</td>
-        <td>{{this.tomatoes.viewer.meter}}</td>
-        <td>{{this.tomatoes.lastUpdated}}</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <div class="container">
+    {{#each movies}}
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="label">Title:</div>
+          <div class="data">{{this.title}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Plot:</div>
+          <div class="data">{{this.plot}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Genres:</div>
+          <div class="data">{{this.genres}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Runtime:</div>
+          <div class="data">{{this.runtime}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Cast:</div>
+          <div class="data">{{this.cast}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Number of Comments:</div>
+          <div class="data">{{this.num_mflix_comments}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Full Plot:</div>
+          <div class="data">{{this.fullplot}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Languages:</div>
+          <div class="data">{{this.languages}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Released Date:</div>
+          <div class="data">{{this.released}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Directors:</div>
+          <div class="data">{{this.directors}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Rated:</div>
+          <div class="data">{{this.rated}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Awards:</div>
+          <div class="data">{{this.awards}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Last Updated:</div>
+          <div class="data">{{this.lastupdated}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Year:</div>
+          <div class="data">{{this.year}}</div>
+        </div>
+        <div class="row">
+          <div class="label">IMDB Rating:</div>
+          <div class="data">{{this.imdb.rating}}</div>
+        </div>
+        <div class="row">
+          <div class="label">IMDB Votes:</div>
+          <div class="data">{{this.imdb.votes}}</div>
+        </div>
+        <div class="row">
+          <div class="label">IMDB ID:</div>
+          <div class="data">{{this.imdb.id}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Countries:</div>
+          <div class="data">{{this.countries}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Type:</div>
+          <div class="data">{{this.type}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Tomatoes Rating:</div>
+          <div class="data">{{this.tomatoes.viewer.rating}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Tomatoes Reviews:</div>
+          <div class="data">{{this.tomatoes.viewer.numReviews}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Tomatoes Meter:</div>
+          <div class="data">{{this.tomatoes.viewer.meter}}</div>
+        </div>
+        <div class="row">
+          <div class="label">Tomatoes Last Updated:</div>
+          <div class="data">{{this.tomatoes.lastUpdated}}</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 </body>
 </html>
