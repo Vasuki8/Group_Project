@@ -26,10 +26,6 @@ app.engine(
 
 app.set("view engine", "hbs");
 
-
-
-
-
 //get all employee data from db
 
 app.get("/", (req, res) => {
@@ -53,27 +49,6 @@ app.post("/api/movies", async function (req, res) {
   }
 });
 
-// app.get("/api/movies", async function (req, res) {
-//   try {
-//     // Fetch all employees from the database
-//     const movies = await Movie.find();
-
-//     // Send the retrieved employees as JSON response
-//     res.json(movies);
-//   } catch (err) {
-//     // If an error occurs, send a 500 status along with the error message
-//     res.status(500).send(err.message);
-//   }
-// });
-
-// app.get('/api/movies', async (req, res) => {
-//     try {
-//         const movies = await Movie.find().lean();   
-//         res.render('movie', { movies });
-//     } catch (err) {
-//         res.status(500).send(err.message);
-//     }
-// });
 
 // Route to display a list of movies
 app.get('/api/movies', async (req, res) => {
