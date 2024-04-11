@@ -1,111 +1,58 @@
-<!-- movies-list.hbs -->
-<!DOCTYPE html>
 <html>
 <head>
-  <title>List of Movies</title>
-  <link rel="stylesheet" href="/movie-list.css"> 
+  <title>Movies List</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* CSS styles for movie cards */
+    .movie-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .movie-card h2 {
+      margin-top: 0;
+    }
+
+    .movie-card p {
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
-  <h1>List of Movies</h1>
-  <div class="container">
+  <h1>Movies List</h1>
+  {{#if message}}
+    <p>{{message}}</p>
+  {{else}}
     {{#each movies}}
-    <div class="card">
-      <div class="card-content">
-        <div class="row">
-          <div class="label">Title:</div>
-          <div class="data">{{this.title}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Plot:</div>
-          <div class="data">{{this.plot}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Genres:</div>
-          <div class="data">{{this.genres}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Runtime:</div>
-          <div class="data">{{this.runtime}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Cast:</div>
-          <div class="data">{{this.cast}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Number of Comments:</div>
-          <div class="data">{{this.num_mflix_comments}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Full Plot:</div>
-          <div class="data">{{this.fullplot}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Languages:</div>
-          <div class="data">{{this.languages}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Released Date:</div>
-          <div class="data">{{this.released}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Directors:</div>
-          <div class="data">{{this.directors}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Rated:</div>
-          <div class="data">{{this.rated}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Awards:</div>
-          <div class="data">{{this.awards}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Last Updated:</div>
-          <div class="data">{{this.lastupdated}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Year:</div>
-          <div class="data">{{this.year}}</div>
-        </div>
-        <div class="row">
-          <div class="label">IMDB Rating:</div>
-          <div class="data">{{this.imdb.rating}}</div>
-        </div>
-        <div class="row">
-          <div class="label">IMDB Votes:</div>
-          <div class="data">{{this.imdb.votes}}</div>
-        </div>
-        <div class="row">
-          <div class="label">IMDB ID:</div>
-          <div class="data">{{this.imdb.id}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Countries:</div>
-          <div class="data">{{this.countries}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Type:</div>
-          <div class="data">{{this.type}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Tomatoes Rating:</div>
-          <div class="data">{{this.tomatoes.viewer.rating}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Tomatoes Reviews:</div>
-          <div class="data">{{this.tomatoes.viewer.numReviews}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Tomatoes Meter:</div>
-          <div class="data">{{this.tomatoes.viewer.meter}}</div>
-        </div>
-        <div class="row">
-          <div class="label">Tomatoes Last Updated:</div>
-          <div class="data">{{this.tomatoes.lastUpdated}}</div>
-        </div>
+      <div class="movie-card">
+        <h2>{{title}}</h2>
+        <p><strong>Plot:</strong> {{plot}}</p>
+        <p><strong>Genres:</strong> {{genres}}</p>
+        <p><strong>Runtime:</strong> {{runtime}}</p>
+        <p><strong>Cast:</strong> {{cast}}</p>
+        <p><strong>Number of Comments:</strong> {{num_mflix_comments}}</p>
+        <p><strong>Full Plot:</strong> {{fullplot}}</p>
+        <p><strong>Languages:</strong> {{languages}}</p>
+        <p><strong>Released:</strong> {{released}}</p>
+        <p><strong>Directors:</strong> {{directors}}</p>
+        <p><strong>Rated:</strong> {{rated}}</p>
+        <p><strong>Awards:</strong> {{awards}}</p>
+        <p><strong>Last Updated:</strong> {{lastupdated}}</p>
+        <p><strong>Year:</strong> {{year}}</p>
+        <p><strong>IMDb Rating:</strong> {{imdb.rating}}</p>
+        <p><strong>IMDb Votes:</strong> {{imdb.votes}}</p>
+        <p><strong>IMDb ID:</strong> {{imdb.id}}</p>
+        <p><strong>Countries:</strong> {{countries}}</p>
+        <p><strong>Type:</strong> {{type}}</p>
+        <p><strong>Tomato Viewer Rating:</strong> {{tomatoes.viewer.rating}}</p>
+        <p><strong>Tomato Viewer Reviews:</strong> {{tomatoes.viewer.numReviews}}</p>
+        <p><strong>Tomato Viewer Meter:</strong> {{tomatoes.viewer.meter}}</p>
+        <p><strong>Last Tomato Updated:</strong> {{tomatoes.lastUpdated}}</p>
       </div>
-    </div>
     {{/each}}
-  </div>
+  {{/if}}
 </body>
 </html>

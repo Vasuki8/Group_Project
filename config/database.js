@@ -1,4 +1,4 @@
 require('dotenv').config;
 module.exports = {
-    url :process.env.url
+    url :process.env.url,
 };

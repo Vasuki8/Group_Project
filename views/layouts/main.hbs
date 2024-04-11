@@ -1,21 +1,14 @@
+<!-- main.hbs -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel='stylesheet' href='/main-styles.css' />
-  </head>
-  <body>
-    <header>
-        <h3 class="name">Name is Yug Sutariya and Vasuki Patel</h1>
-        <h3>Studend Id :- N01580206 , N01579884</h2>
-    </header>
-    <main>
-        {{{body}}}
-    </main>
-    
-    <footer>
-        yugsutariya4i@gmail.com
-        patelvasuki@gmail.com
-    </footer>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  {{> nav loggedIn}}
+  {{{body}}}
+</body>
 </html>
