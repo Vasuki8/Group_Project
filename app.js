@@ -69,10 +69,6 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/api/movies/new", (req, res) => {
-  res.render("movie-form", { layout: "main", loggedIn: true });
-});
-
 app.get("/api/movies", async function (req, res) {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -155,34 +151,6 @@ app.post("/login", async (req, res) => {
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
-
-
-app.post("/api/movies", async function (req, res) {
-  try {
-    await Movie.create(req.body);
-    const movie = await Movie.find().lean();
-    res.redirect("/api/movies");
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-});
-
-
-app.post("/api/movies", async function (req, res) {
-  console.log(req.body);
-  try {
-    const newMovie = new Movie(req.body);
-    const savedMovie = await newMovie.save();
-
-    res.status(201).json(savedMovie);
-  } catch (err) {
-    res.status(500).send(err.message);
   }
 });
 
