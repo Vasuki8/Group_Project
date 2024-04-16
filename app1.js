@@ -47,14 +47,14 @@ function isAuthenticated(req, res, next) {
     }
 
     try {
-        const decoded = jwt.verify(token,"yugisgood");
+        const decoded = jwt.verify(token,secretkey);
         req.user = decoded;
         return next();
     } catch (error) {
         return res.redirect('/login');
     }
 }
-    
+
 
 app.get("/api/movies/new", isAuthenticated, (req, res) => {
     res.render("movie-form", { layout: "main", loggedIn: true });
@@ -122,7 +122,7 @@ app.post('/register', async (req, res) => {
             email,
             password: hashedPassword
         });
-        const token = jwt.sign({ userId: newUser._id },"yugisgood");
+        const token = jwt.sign({ userId: newUser._id },secretkey);
         res.cookie("jwt", token, {
             maxAge: 600000,
             httpOnly: true
@@ -146,7 +146,7 @@ app.post('/login', async (req, res) => {
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
-        const token = jwt.sign({ userId: user._id }, "yugisgood");
+        const token = jwt.sign({ userId: user._id }, secretkey);
         res.cookie("jwt", token, {
             maxAge: 60000,
             httpOnly: true
