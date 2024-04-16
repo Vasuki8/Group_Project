@@ -58,7 +58,8 @@ button {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 button:hover {
@@ -87,5 +88,12 @@ button:focus {
             
             <button type="submit">Fetch Movies</button>
         </form>
+        {{#if loggedIn}}
+                <li>
+                    <form action="/logout" method="post">
+                        <button type="submit">Sign out</button>
+                    </form>
+                </li>
+            {{/if}}
     </body>
     </html>

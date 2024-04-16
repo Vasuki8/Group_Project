@@ -19,10 +19,37 @@
     .movie-card p {
       margin-bottom: 5px;
     }
+
+    .signup-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .signup-btn:hover {
+      background-color: #0056b3;
+    }
+    
   </style>
 </head>
 <body>
-  <h1>Movies List</h1>
+
+   {{#if loggedIn}}
+                <li>
+                    <form action="/logout" method="post">
+                        <button type="submit">Sign out</button>
+                    </form>
+                </li>
+            {{/if}}'
+
+  <h1>Movies List</h1>'
+ 
   {{#if message}}
     <p>{{message}}</p>
   {{else}}
@@ -54,5 +81,9 @@
       </div>
     {{/each}}
   {{/if}}
+
+  <button><a href="/register" class="signup-btn">Sign up</a></button>
+
+
 </body>
 </html>

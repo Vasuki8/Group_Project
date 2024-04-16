@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My App</title>
+    <style>
+       .container h1{
+            margin: 100px;
+            color: black;
+        }
+        .container .p1{
+            margin-top: -70px;
+            margin-bottom: 30px;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 10px; /* Added spacing between paragraphs */
+        }
+
+        .overview {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Align text to the left */
+        }
+
+        .overview h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .overview p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container"> 
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <h1>Welcome to My App!</h1>
+    <p class="p1">This is a simple web application.</p>
+    <div class="overview">
+        <h2>Overview</h2>
+        <p>Dependencies and Middleware Setup:</p>
+        <ul>
+            <li>The code starts by importing required packages such as express, mongoose, bcryptjs, jsonwebtoken, and others.</li>
+            <li>Middleware like body-parser, express-handlebars, and cookie-parser are set up to handle request bodies, rendering views, and parsing cookies, respectively.</li>
+        </ul>
+        <p>Database Connections:</p>
+        <ul>
+            <li>Two database connections are established using Mongoose for handling movie data and user data. These connections are defined using URLs fetched from configuration files.</li>
+        </ul>
+        <p>Schema and Model Definitions:</p>
+        <ul>
+            <li>Schemas for movies and users are imported from separate model files and then used to create models using Mongoose.</li>
+        </ul>
+        <p>Handlebars Configuration:</p>
+        <ul>
+            <li>Express Handlebars is configured as the template engine for rendering views.</li>
+        </ul>
+        <p>Authentication Middleware:</p>
+        <ul>
+            <li>An isAuthenticated middleware function is defined to check if a user is authenticated using a JWT token stored in cookies.</li>
+        </ul>
+        <p>Routes:</p>
+        <ul>
+            <li>There are routes defined for the default route ("/"), registration ("/register"), login ("/login"), logout ("/logout"), and movie-related endpoints ("/api/movies/new" and "/api/movies").</li>
+            <li>GET and POST requests are handled for registration and login, with password hashing and JWT token generation.</li>
+            <li>GET requests for movie-related endpoints fetch movies from the database and render views accordingly.</li>
+            <li>A POST request for creating new movies is also defined.</li>
+            <li>A POST request for logout clears the JWT cookie and redirects to the default route.</li>
+        </ul>
+        <p>Server Listening:</p>
+        <ul>
+            <li>The server listens on the specified port, and a message is logged to indicate that the server is running.</li>
+        </ul>
+        <p>Overall, this code sets up a basic Express application with authentication, user registration and login, movie data handling, and JWT-based authentication middleware. It uses MongoDB for data storage and Express Handlebars for rendering views.</p>
+    </div>
+</div>
+
+</body>
+</html>

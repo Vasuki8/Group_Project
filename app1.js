@@ -55,6 +55,11 @@ function isAuthenticated(req, res, next) {
     }
 }
 
+app.get("/", (req, res) => {
+    // Render a view containing the normal navbar and welcome message
+    res.render("home", { layout: "main", loggedIn: false });
+});
+
 
 app.get("/api/movies/new", isAuthenticated, (req, res) => {
     res.render("movie-form", { layout: "main", loggedIn: true });
@@ -156,6 +161,11 @@ app.post('/login', async (req, res) => {
         console.error('Error during login:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
+});
+
+app.post("/logout", (req, res) => {
+    res.clearCookie("jwt"); // Clear the JWT cookie
+    res.redirect("/"); // Redirect to the default route or home page
 });
 
 app.listen(port, () => {
