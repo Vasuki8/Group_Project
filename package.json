@@ -1,6 +1,6 @@
 {
-  "start": "app1.js",
   "scripts": {
+    "start": "nodemon app1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
