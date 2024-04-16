@@ -54,14 +54,37 @@ function isAuthenticated(req, res, next) {
         return res.redirect('/login');
     }
 }
-
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
+    
 
 app.get("/api/movies/new", isAuthenticated, (req, res) => {
     res.render("movie-form", { layout: "main", loggedIn: true });
 });
+
+app.get("/api/movies",isAuthenticated, async function (req, res) {
+    try {
+      // Extract page, perPage, and title parameters from the query string
+      const page = parseInt(req.query.page) || 1;
+      const perPage = parseInt(req.query.perPage) || 10;
+      const title = req.query.title; // Optional title filter
+
+      // Construct the query based on pagination and optional title filter
+      let query = Movie.find().lean();
+      if (title) {
+        query = query.regex('title', new RegExp(title, 'i')); // Case-insensitive title search
+      }
+      const movies = await query
+        .sort({_id: -1})
+        .skip((page - 1) * perPage)
+        .limit(perPage);
+
+      // Render the 'movies' HBS file and pass the movie data as context
+      res.render('movie-list', { movies: movies });
+      // res.json(movies);
+    } catch (err) {
+      // If an error occurs, render an error page
+      res.render('error', { error: err.message });
+    }
+  });
 
 app.post("/api/movies", async function (req, res) {
     try {
@@ -73,14 +96,14 @@ app.post("/api/movies", async function (req, res) {
     }
 });
 
-app.get("/api/movies", async function (req, res) {
-    try {
-        const movies = await Movie.find();
-        res.json(movies);
-    } catch (err) {
-        res.status(500).send(err.message);
-    }
-});
+// app.get("/api/movies", async function (req, res) {
+//     try {
+//         const movies = await Movie.find();
+//         res.json(movies);
+//     } catch (err) {
+//         res.status(500).send(err.message);
+//     }
+// });
 
 app.get("/register", (req, res) => {
     res.render("register", { layout: "main", loggedIn: false });

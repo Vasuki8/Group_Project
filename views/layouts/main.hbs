@@ -5,7 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding-top: 40px; /* Add padding to the top to prevent content from being hidden behind the fixed navbar */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+  </style>
+  {{!-- <link rel="stylesheet" href="/styles.css"> --}}
 </head>
 <body>
   {{> nav loggedIn}}

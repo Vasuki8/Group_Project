@@ -1,4 +1,45 @@
-<nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  nav {
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #555; /* Adjust background color as needed */
+}
+
+nav ul li a:hover {
+  background-color: #777; /* Adjust hover background color as needed */
+}
+</style>
+<body>
+  <nav>
   <ul>
     {{#if loggedIn}}
       <li><a href="/api/movies/new">Add Movie</a></li>
@@ -8,4 +49,8 @@
       <li><a href="/login">Login</a></li>
     {{/if}}
   </ul>
-</nav>
+</nav>  
+</body>
+</html>
+
+
